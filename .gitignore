@@ -1,5 +1,10 @@
-.idea/
-.vscode/
-vendor/
+# Code editors
+.idea
+.vscode
+
+# Composer
+vendor
 composer.lock
+
+# Etc
 app/data/db.json
