@@ -8,3 +8,4 @@ composer.lock
 
 # Etc
 app/data/db.json
+_private*

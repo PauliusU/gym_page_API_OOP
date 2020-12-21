@@ -187,3 +187,14 @@ a:hover {
 #pizza-grid-container img:hover {
     transform: scale(1.1);
 }
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
