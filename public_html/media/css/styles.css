@@ -150,6 +150,18 @@ a:hover {
     color: black;
 }
 
+/*######################
+##  Footer
+########################*/
+
+footer {
+    background-color: dimgray;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /*######################
 ##  Index Page
@@ -189,7 +201,7 @@ a:hover {
 }
 
 #map {
-    width: 100%;
+    width: 100vh;
     height: 300px;
 }
 
