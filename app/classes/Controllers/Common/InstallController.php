@@ -11,11 +11,18 @@ class InstallController
     {
         App::$db = new FileDB(DB_FILE);
 
+        // Users
         App::$db->createTable('users');
-        App::$db->insertRow('users', ['email' => 'test@test.lt', 'password' => 'test', 'user_name' => 'testas', 'role' => 'user']);
-        App::$db->insertRow('users', ['email' => 'pica@skani.lt', 'password' => 'pica', 'user_name' => 'Picis', 'role' => 'admin']);
-        App::$db->createTable('pizzas');
-        App::$db->createTable('orders');
+        App::$db->insertRow('users', [
+            'email' => 'test@test.lt',
+            'password' => 'test',
+            'user_name' => 'testas'
+        ]);
+
+//        App::$db->createTable('pizzas');
+//        App::$db->createTable('orders');
+
+        print 'DB setup completed';
     }
 }
 

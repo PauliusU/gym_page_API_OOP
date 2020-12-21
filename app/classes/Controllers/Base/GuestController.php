@@ -6,7 +6,7 @@ use App\App;
 
 class GuestController
 {
-    protected string $redirect =  '/index.php';
+    protected string $redirect =  '/index';
 
     public function __construct()
     {

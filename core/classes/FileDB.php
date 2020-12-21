@@ -235,7 +235,7 @@ class FileDB
     {
         $results = [];
 
-        foreach ($this->data[$table_name] as $row_id => $row) {
+        foreach ($this->data[$table_name] ?? [] as $row_id => $row) {
             $found = true;
 
             foreach ($conditions as $condition_id => $condition_value) {
@@ -265,7 +265,7 @@ class FileDB
      */
     public function getRowWhere(string $table_name, array $conditions = [])
     {
-        foreach ($this->data[$table_name] as $row_id => $row) {
+        foreach ($this->data[$table_name] ?? [] as $row_id => $row) {
             $found = true;
 
             foreach ($conditions as $condition_id => $condition_value) {

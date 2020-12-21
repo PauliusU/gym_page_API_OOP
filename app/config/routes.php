@@ -10,7 +10,7 @@ Router::add('install', '/install', \App\Controllers\Common\InstallController::cl
 
 // Common Routes
 Router::add('index', '/', \App\Controllers\Common\HomeController::class);
-Router::add('index2', '/index.php', \App\Controllers\Common\HomeController::class);
+Router::add('index2', '/index', \App\Controllers\Common\HomeController::class);
 
 // Admin Routes
 Router::add('admin_orders', "/admin/orders", \App\Controllers\Admin\OrdersController::class);
