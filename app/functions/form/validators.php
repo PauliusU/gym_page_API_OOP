@@ -86,14 +86,3 @@ function validate_logged_in_user(array $filtered_input, array &$field): bool
     return true;
 
 }
-
-function validate_row_exists(string $field_input, array &$field): bool
-{
-    if (App::$db->rowExists('pizzas', $field_input)) {
-        return true;
-    }
-
-    $field['error'] = 'Row exists';
-
-    return false;
-}
