@@ -41,13 +41,15 @@ class FeedbackApiController
         $form = new FeedbackCreateForm();
 
         if ($form->validate()) {
-            $comment = [
+            $comment['name'] = App::$session->getUser()['name'];
+            $comment['timestamp'] = date("Y-m-d", time());
+            $comment['comment'] = $form->value('text');
+
+            $comment['id'] = App::$db->insertRow('comments', [
                 'user_id' => App::$db->getRowIdWhere('users', ['email' => App::$session->getUser()['email']]),
                 'timestamp' => time(),
-                'comment' => $form->value('text'),
-            ];
-
-            App::$db->insertRow('comments', $comment);
+                'comment' => $comment['comment'],
+            ]);
 
             $response->setData($comment);
         } else {

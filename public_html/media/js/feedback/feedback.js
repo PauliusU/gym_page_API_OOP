@@ -68,22 +68,22 @@ const forms = {
             },
             onSubmitListener: function (e) {
                 e.preventDefault();
-                console.log("PREVENTAS");
-                console.log(e);
                 let formData = new FormData(e.target);
                 formData.append('action', 'create');
+                console.log(formData);
                 api(endpoints.create, formData, forms.create.success, forms.create.fail);
             },
             success: function (data) {
                 const element = forms.create.getElement();
 
-                const option = forms.create.getElement().querySelector('option[value="' + data.id + '"]');
-                option.remove();
+                // const option = forms.create.getElement().querySelector('option[value="' + data.id + '"]');
+                // option.remove();
 
                 table.row.append(data);
                 forms.ui.errors.hide(element);
                 forms.ui.clear(element);
-                forms.ui.flash.class(element, 'success');
+                // forms.ui.flash.class(element, 'success');
+                forms.ui.flash(element, 'success');
             },
             fail: function (errors) {
                 forms.ui.errors.show(forms.create.getElement(), errors);
