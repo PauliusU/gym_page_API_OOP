@@ -46,7 +46,7 @@ class FileDB
      */
     public function save(): bool
     {
-        $data = json_encode($this->getData());
+        $data = json_encode($this->getData(), JSON_PRETTY_PRINT);
         $bytes_written = file_put_contents($this->file_name, $data);
 
         return $bytes_written !== false;
@@ -278,6 +278,26 @@ class FileDB
 
             if ($found) {
                 return $row;
+            }
+        }
+
+        return false;
+    }
+
+    public function getRowIdWhere(string $table_name, array $conditions = [])
+    {
+        foreach ($this->data[$table_name] ?? [] as $row_id => $row) {
+            $found = true;
+
+            foreach ($conditions as $condition_id => $condition_value) {
+                if ($row[$condition_id] !== $condition_value) {
+                    $found = false;
+                    break;
+                }
+            }
+
+            if ($found) {
+                return $row_id;
             }
         }
 

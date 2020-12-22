@@ -16,7 +16,7 @@ class RegisterController extends GuestController
         parent::__construct();
         $this->form = new RegisterForm();
         $this->page = new BasePage([
-            'title' => 'Register'
+            'title' => 'Register | Golden gym'
         ]);
     }
     public function register()
@@ -24,7 +24,7 @@ class RegisterController extends GuestController
         if ($this->form->validate()) {
             $clean_inputs = $this->form->values();
             unset($clean_inputs['password_repeat']);
-            App::$db->insertRow('users', $clean_inputs + ['role' => 'user']);
+            App::$db->insertRow('users', $clean_inputs);
             header('Location: /login');
         }
         $this->page->setContent($this->form->render());

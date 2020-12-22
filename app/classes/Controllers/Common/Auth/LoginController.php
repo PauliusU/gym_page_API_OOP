@@ -9,15 +9,15 @@ use App\Views\Forms\Common\Auth\LoginForm;
 
 class LoginController extends GuestController
 {
-    protected $form;
-    protected $page;
+    protected LoginForm $form;
+    protected BasePage $page;
 
     public function __construct()
     {
         parent::__construct();
         $this->form = new LoginForm();
         $this->page = new BasePage([
-            'title' => 'LOGIN'
+            'title' => 'Login | Golden gym'
         ]);
     }
 
@@ -33,13 +33,12 @@ class LoginController extends GuestController
             $clean_inputs = $this->form->values();
             App::$session->login($clean_inputs['email'], $clean_inputs['password']);
             if (App::$session->getUser()) {
-                header('Location: /index');
+                header('Location: /');
                 exit();
             }
         }
 
         $this->page->setContent($this->form->render());
         return $this->page->render();
-
     }
 }
