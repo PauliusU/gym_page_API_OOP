@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Base\AdminController;
 use App\Views\BasePage;
 use App\Views\Forms\Admin\Order\OrderUpdateForm;
-use App\Views\Tables\Admin\OrderTable;
+use App\Views\Tables\Admin\FeedbackTable;
 
 /**
  * Class AdminOrders
@@ -33,7 +33,7 @@ class OrdersController extends AdminController
             'update' => (new OrderUpdateForm())->render()
         ];
 
-        $table = new OrderTable($forms);
+        $table = new FeedbackTable($forms);
         $this->page->setContent($table->render());
         return $this->page->render();
     }

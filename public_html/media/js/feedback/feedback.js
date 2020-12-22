@@ -2,6 +2,7 @@
 
 const endpoints = {
     get: '/api/comment/get',
+    create: '/api/comment/create',
 };
 /**
  * This defines how JS code selects elements by ID
@@ -9,8 +10,8 @@ const endpoints = {
 const selectors = {
     table: 'table',
     forms: {
-        create: 'discount-create-form',
-        update: 'discount-update-form',
+        create: 'comment-create-form',
+        update: 'comment-update-form',
     },
     modal: 'update-modal'
 }
@@ -75,7 +76,7 @@ const forms = {
             success: function (data) {
                 const element = forms.create.getElement();
 
-                const option = forms.create.getElement().querySelector('option[value="' + data.pizza_id + '"]');
+                const option = forms.create.getElement().querySelector('option[value="' + data.id + '"]');
                 option.remove();
 
                 table.row.append(data);
@@ -314,7 +315,7 @@ const table = {
 
             row.setAttribute('data-id', data.id);
             row.className = 'data-row';
-            delete (data.pizza_id);
+            delete (data.id);
 
             Object.keys(data).forEach(data_id => {
                 switch (data_id) {

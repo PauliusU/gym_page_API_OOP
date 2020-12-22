@@ -18,7 +18,7 @@ class Router extends \Core\Abstracts\Router
      *
      * @var array
      */
-    protected static  $routes = [];
+    protected static array $routes = [];
     /**
      * We will call this as follows:
      * Router::add('login', '/login', '\App\Controllers\Auth\LoginController', 'index')

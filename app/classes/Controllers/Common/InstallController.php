@@ -33,13 +33,13 @@ class InstallController
         // Feedback (comments) table
         App::$db->createTable('comments');
         App::$db->insertRow('comments', [
-            'user_id' => 1,
-            'timestamp' => 1608641838,
+            'user_id' => 0,
+            'timestamp' => 1607641838,
             'comment' => 'Golden gym is the greatest gym in town.',
         ]);
         App::$db->insertRow('comments', [
-            'user_id' => 2,
-            'timestamp' => 1608641800,
+            'user_id' => 1,
+            'timestamp' => 1608641838,
             'comment' => 'Could not recommend group trainings more. Personal trainers in Golden gym are the best!',
         ]);
 

@@ -4,7 +4,7 @@ namespace App\Views\Forms;
 
 use Core\Views\Form;
 
-class FeedbackForm extends Form
+class FeedbackCreateForm extends Form
 {
     public function __construct()
     {

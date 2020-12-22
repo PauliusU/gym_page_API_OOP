@@ -119,14 +119,42 @@ button:hover {
 ##  Table
 ########################*/
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+/*table, th, td {*/
+/*    color: white;*/
+/*    border: 1px solid black;*/
+/*    border-collapse: collapse;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+table {
+    color: white;
+    /*border-collapse: collapse;*/
+    /*border: 1px solid black;*/
 }
 
-tr, td, th {
-    margin: 10px;
+th,
+td {
+    border: 1px solid black;
     padding: 10px;
+    border-radius: 4px;
+    transition-duration: 1s;
+}
+
+
+tr, td, th {
+    /*margin: 10px;*/
+    padding: 10px;
+    margin: 0;
+}
+
+tr:nth-child(odd) {
+    /*background-color: rgba(128, 128, 128, 0.2);*/
+}
+
+th:hover,
+td:hover {
+    background-color: gold;
+    transition: ease-in-out;
 }
 
 /*######################
@@ -314,11 +342,12 @@ footer span {
 ########################*/
 
 #feedback-table {
-    border: 5px solid gold;
+    /*border: 5px solid gold;*/
     background-color: rgb(51, 51, 51);
     border-radius: 10px;
     width: 800px;
-    height: 400px;
+    /*height: 400px;*/
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

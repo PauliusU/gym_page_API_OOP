@@ -17,7 +17,7 @@ abstract class Router
      *
      * @var array
      */
-    protected static $routes = [];
+    protected static array $routes = [];
 
     /**
      * We will call this as follows:

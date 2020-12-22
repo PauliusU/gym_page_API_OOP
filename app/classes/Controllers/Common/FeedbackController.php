@@ -4,7 +4,8 @@ namespace App\Controllers\Common;
 
 use App\App;
 use App\Views\BasePage;
-use App\Views\Forms\FeedbackForm;
+use App\Views\Forms\FeedbackCreateForm;
+use App\Views\Tables\Feedback\FeedbackTable;
 use Core\View;
 use Core\Views\Link;
 
@@ -40,8 +41,11 @@ class FeedbackController
      */
     public function index(): ?string
     {
+
+        $table = new FeedbackTable();
+
         if (App::$session->getUser()) {
-            $feedbackForm = (new FeedbackForm())->render();
+            $feedbackForm = (new FeedbackCreateForm())->render();
         } else {
             $link = new Link([
                 'text' => 'Want to write a comment? Please register',
@@ -54,6 +58,7 @@ class FeedbackController
         $content = (new View([
             'title' => 'Feedback',
             'form' => $feedbackForm ?? [],
+            'table' => $table->render(),
         ]))->render(ROOT . '/app/templates/content/feedback.tpl.php');
 
         $this->page->setContent($content);

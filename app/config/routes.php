@@ -14,4 +14,5 @@ Router::add('install', '/install', \App\Controllers\Common\InstallController::cl
 Router::add('feedback', '/feedback', \App\Controllers\Common\FeedbackController::class);
 
 // API Routes
-Router::add('api_pizza_get', '/api/comment/get', \App\Controllers\Common\API\PizzaApiController::class);
+Router::add('api_comment_get', '/api/comment/get', \App\Controllers\Common\API\FeedbackApiController::class);
+Router::add('api_comment_create', '/api/comment/create', \App\Controllers\Common\API\FeedbackApiController::class);
