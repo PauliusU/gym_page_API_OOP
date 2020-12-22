@@ -2,12 +2,8 @@
 
 namespace App\Controllers\Common;
 
-use App\App;
 use App\Views\BasePage;
-use App\Views\Forms\Admin\Pizza\PizzaCreateForm;
-use App\Views\Forms\Admin\Pizza\PizzaUpdateForm;
 use Core\View;
-use Core\Views\Link;
 
 class HomeController
 {
@@ -56,7 +52,7 @@ class HomeController
             [
                 'image' => '\media\img\service-3.jpg',
                 'title' => 'Enjoy mobile app',
-                'description' => 'Golden gym app is like your personal trainer - choose exercises and training programmes and see your progress while having fun. Take part in challenges, compete with friends, discuss and share your achievements.'
+                'description' => 'Golden gym app is like your personal trainer - choose training programmes and see your progress. Take part in challenges, compete with friends, discuss and share your achievements.'
             ],
         ];
 

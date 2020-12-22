@@ -29,7 +29,7 @@ class FeedbackController
     {
         $this->page = new BasePage([
             'title' => 'Feedback | Golden gym',
-            'js' => ['/media/js/feedback/feedback.js']
+            'js' => ['/media/js/feedback.js']
         ]);
     }
 
@@ -56,7 +56,7 @@ class FeedbackController
         }
 
         $content = (new View([
-            'title' => 'Feedback',
+            'title' => 'Feedback about Golden gym',
             'form' => $feedbackForm ?? [],
             'table' => $table->render(),
         ]))->render(ROOT . '/app/templates/content/feedback.tpl.php');
