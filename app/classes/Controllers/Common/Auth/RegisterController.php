@@ -16,7 +16,7 @@ class RegisterController extends GuestController
         parent::__construct();
         $this->form = new RegisterForm();
         $this->page = new BasePage([
-            'title' => 'Register'
+            'title' => 'Register | Golden gym'
         ]);
     }
     public function register()

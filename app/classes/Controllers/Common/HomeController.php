@@ -28,7 +28,7 @@ class HomeController
     public function __construct()
     {
         $this->page = new BasePage([
-            'title' => 'Golden gym',
+            'title' => 'Home | Golden gym',
 //            'js' => ['/media/js/home.js']
         ]);
     }

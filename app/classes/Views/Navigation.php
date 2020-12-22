@@ -15,6 +15,7 @@ class Navigation extends View
     public function generate()
     {
         $this->addLink('Home', App::$router::getUrl('index'), 'left');
+        $this->addLink('Feedback', App::$router::getUrl('feedback'), 'left');
 
         if (App::$session->getUser()) {
             $this->addLink('Feedback', App::$router::getUrl('user_orders'), 'left');
