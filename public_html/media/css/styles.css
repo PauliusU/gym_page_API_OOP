@@ -103,12 +103,12 @@ button:hover {
 \*------------------------------------*/
 
 table {
-    word-break: break-all;
     color: white;
 }
 
 th,
 td {
+    word-break: break-all;
     background-color: rgb(90, 90, 90);
     border: 1px solid black;
     padding: 10px;
@@ -132,6 +132,10 @@ th:hover,
 td:hover {
     background-color: gold;
     transition: ease-in-out;
+}
+
+td.comment {
+    max-width: 550px;
 }
 
 /*------------------------------------*\
