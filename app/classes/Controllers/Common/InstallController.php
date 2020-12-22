@@ -7,7 +7,10 @@ use Core\FileDB;
 
 class InstallController
 {
-    public function install()
+    /**
+     * Fill file based DB with sample-data
+     */
+    public function install(): void
     {
         App::$db = new FileDB(DB_FILE);
 

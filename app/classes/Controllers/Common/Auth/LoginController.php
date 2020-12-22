@@ -40,6 +40,5 @@ class LoginController extends GuestController
 
         $this->page->setContent($this->form->render());
         return $this->page->render();
-
     }
 }

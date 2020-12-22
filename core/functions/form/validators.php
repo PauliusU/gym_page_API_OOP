@@ -66,6 +66,13 @@ function validate_contains_space(string $field_value, array &$field): bool
     return true;
 }
 
+/**
+ * Check if field does not contain space
+ *
+ * @param string $field_value
+ * @param array $field
+ * @return bool
+ */
 function validate_not_contains_space(string $field_value, array &$field): bool
 {
     if (str_word_count(trim($field_value)) < 2) {
@@ -77,7 +84,7 @@ function validate_not_contains_space(string $field_value, array &$field): bool
 }
 
 /**
- * Chef if number is within the min and max range.
+ * Check if number is within the min and max range.
  *
  * @param string $field_value
  * @param array $field
@@ -98,7 +105,14 @@ function validate_range(string $field_value, array &$field, array $params): bool
     return true;
 }
 
-
+/**
+ * Check if number of inserted symbols are within the given range
+ *
+ * @param string $field_value
+ * @param array $field
+ * @param array $params
+ * @return bool
+ */
 function validate_length(string $field_value, array &$field, array $params): bool
 {
     if (strlen($field_value) < ($params['min'] ?? 0) || strlen($field_value) > $params['max']) {
@@ -113,6 +127,13 @@ function validate_length(string $field_value, array &$field, array $params): boo
     return true;
 }
 
+/**
+ * Check if field does not contain numbers
+ *
+ * @param string $field_value
+ * @param array $field
+ * @return bool
+ */
 function validate_not_numeric(string $field_value, array &$field): bool
 {
     if (preg_match('~[0-9]~', $field_value)) {
@@ -141,7 +162,6 @@ function validate_numeric(string $field_value, array &$field): bool
 
     return true;
 }
-
 
 /**
  * Check if selected value is one of the possible options in options array

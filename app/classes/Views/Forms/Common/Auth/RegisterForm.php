@@ -85,7 +85,7 @@ class RegisterForm extends Form
                         'type' => 'text',
                         'extra' => [
                             'attr' => [
-                                'placeholder' => 'E.g. 612345678',
+                                'placeholder' => 'E.g. +49612345678',
                             ]
                         ]
                     ],

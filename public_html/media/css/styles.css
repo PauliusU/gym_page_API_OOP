@@ -27,6 +27,17 @@ main {
     min-height: calc(100vh - 140px);
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+a:hover {
+    color: gold;
+}
+
 ::selection {
     background: rgba(254, 210, 43, 0.9);
     color: #171c1f;
@@ -155,17 +166,6 @@ nav ul {
 
 nav li {
     padding: 0 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-nav a:hover {
-    color: gold;
 }
 
 nav .active {

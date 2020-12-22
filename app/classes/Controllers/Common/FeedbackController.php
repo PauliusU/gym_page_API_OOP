@@ -34,7 +34,7 @@ class FeedbackController
     }
 
     /**
-     * Home Controller Index
+     * FeedbackController Index
      *
      * @return string|null
      * @throws \Exception

@@ -18,6 +18,7 @@ class FeedbackCreateForm extends Form
                         'validate_length' => [
                             'max' => 500,
                         ],
+                        'validate_logged_in_user',
                     ],
                     'extra' => [
                         'attr' => [

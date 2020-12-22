@@ -8,7 +8,11 @@ use Core\Api\Response;
 
 class FeedbackApiController
 {
-
+    /**
+     * Get json-encoded API response when generating feedback (comments) table in feedback page
+     *
+     * @return string
+     */
     public function index(): string
     {
         // This is a helper class to make sure
@@ -33,6 +37,11 @@ class FeedbackApiController
         return $response->toJson();
     }
 
+    /**
+     * Get json-encoded API response when creating feedback (comment) in feedback page
+     *
+     * @return string
+     */
     public function create(): string
     {
         // This is a helper class to make sure
