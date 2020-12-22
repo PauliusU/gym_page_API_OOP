@@ -18,8 +18,6 @@ class Navigation extends View
         $this->addLink('Feedback', App::$router::getUrl('feedback'), 'left');
 
         if (App::$session->getUser()) {
-            $this->addLink('Feedback', App::$router::getUrl('user_orders'), 'left');
-
             $user_email = App::$session->getUser()['email'];
             $this->addLink("Logout ($user_email)", App::$router::getUrl('logout'), 'right');
         } else {

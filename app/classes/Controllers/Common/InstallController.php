@@ -21,8 +21,27 @@ class InstallController
             'phone' => '+370612345678',
             'address' => 'Saulėtekio al. 15, Vilnius',
         ]);
+        App::$db->insertRow('users', [
+            'name' => 'J',
+            'surname' => 'testauskas',
+            'email' => 'test@test.lt',
+            'password' => 'test',
+            'phone' => '+370612345678',
+            'address' => 'Saulėtekio al. 15, Vilnius',
+        ]);
 
-//        App::$db->createTable('comments');
+        // Feedback (comments) table
+        App::$db->createTable('comments');
+        App::$db->insertRow('comments', [
+            'user_id' => 1,
+            'timestamp' => 1608641838,
+            'comment' => 'Golden gym is the greatest gym in town.',
+        ]);
+        App::$db->insertRow('comments', [
+            'user_id' => 2,
+            'timestamp' => 1608641800,
+            'comment' => 'Could not recommend group trainings more. Personal trainers in Golden gym are the best!',
+        ]);
 
         print 'DB setup completed';
     }

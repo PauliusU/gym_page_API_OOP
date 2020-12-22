@@ -4,12 +4,13 @@ namespace App\Controllers\Common;
 
 use App\App;
 use App\Views\BasePage;
+use App\Views\Forms\FeedbackForm;
 use Core\View;
 use Core\Views\Link;
 
 class FeedbackController
 {
-    protected $page;
+    protected BasePage $page;
 
     /**
      * Controller constructor.
@@ -39,23 +40,20 @@ class FeedbackController
      */
     public function index(): ?string
     {
-
         if (App::$session->getUser()) {
-            $feedbackForm = new FeedbackForm();
-            $feedbackForm = $feedbackForm->render();
+            $feedbackForm = (new FeedbackForm())->render();
         } else {
-             $link= new Link([
-                'text' => 'Want to write a comment? Sign up',
+            $link = new Link([
+                'text' => 'Want to write a comment? Please register',
                 'url' => App::$router::getUrl('register'),
             ]);
 
             $feedbackForm = $link->render();
         }
 
-
         $content = (new View([
+            'title' => 'Feedback',
             'form' => $feedbackForm ?? [],
-            'map' => $map_source ?? '',
         ]))->render(ROOT . '/app/templates/content/feedback.tpl.php');
 
         $this->page->setContent($content);

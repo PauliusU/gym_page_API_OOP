@@ -32,16 +32,6 @@ main {
     margin: 50px;
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-tr, td, th {
-    margin: 10px;
-    padding: 10px;
-}
-
 ::selection {
     background: rgba(254, 210, 43, 0.9);
     color: #171c1f;
@@ -67,19 +57,22 @@ form {
 
 form p {
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 label {
     /*font-family: Arial;*/
+    /*width: 300px;*/
 }
 
-input {
+input,
+textarea {
     padding: 7px;
     margin: 5px;
-}
-
-textarea {
-    padding: 20px;
+    border: none;
+    border-radius: 3px;
+    width: 300px;
+    resize: vertical;
 }
 
 button {
@@ -89,7 +82,9 @@ button {
     background: gold;
     color: black;
     width: 150px;
-    border: 2px solid white;
+    border-radius: 3px;
+    border: 2px solid yellow;
+    font-weight: bold;
     /*font-family: 'Bangers', cursive;*/
     cursor: pointer;
 }
@@ -97,6 +92,7 @@ button {
 button:hover {
     background: white;
     color: black;
+    border-color: gold;
 }
 
 .modal {
@@ -117,6 +113,20 @@ button:hover {
 .error {
     color: red;
     font-size: .8em;
+}
+
+/*######################
+##  Table
+########################*/
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr, td, th {
+    margin: 10px;
+    padding: 10px;
 }
 
 /*######################
@@ -167,7 +177,6 @@ nav li {
     padding: 0 10px;
 }
 
-
 a {
     color: white;
     text-decoration: none;
@@ -211,7 +220,7 @@ footer span {
 }
 
 /*######################
-##  Index Page
+##  Index
 ########################*/
 
 #hero-image {
@@ -300,7 +309,38 @@ footer span {
     border: none;
 }
 
-/*======== Mobile version (responsive design) ======*/
+/*######################
+##  Feedback
+########################*/
+
+#feedback-table {
+    border: 5px solid gold;
+    background-color: rgb(51, 51, 51);
+    border-radius: 10px;
+    width: 800px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*margin: 20px 0;*/
+}
+
+#feedback-form {
+    width: 400px;
+    background-color: rgb(51, 51, 51);
+    /*border: 5px solid gold;*/
+    border-radius: 10px;
+    min-height: 50px;
+    /*width: 800px;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*margin: 20px 0;*/
+}
+
+/*######################
+##  Mobile version (responsive design)
+########################*/
 @media only screen and (max-width: 400px) {
     #hero {
         height: 150px;
