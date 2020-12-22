@@ -108,7 +108,8 @@ button:hover {
     cursor: pointer;
 }
 
-.error {
+.field-error,
+.form-error {
     color: red;
     font-size: .8em;
 }
@@ -366,6 +367,17 @@ footer span {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+}
+
+.success {
+    animation: form-blinker 1s linear infinite;
+}
+
+@keyframes form-blinker {
+    50% {
+        background-color: gold;
+        /*opacity: 0;*/
+    }
 }
 
 /*######################

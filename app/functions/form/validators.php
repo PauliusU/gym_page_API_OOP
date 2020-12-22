@@ -61,6 +61,25 @@ function validate_login(array $filtered_input, array &$form): bool
     return false;
 }
 
+/**
+ * Check if user is logged in
+ *
+ * @param array $filtered_input
+ * @param array $field
+ * @return bool
+ */
+function validate_logged_in_user(array $filtered_input, array &$field): bool
+{
+    if (!App::$session->getUser()) {
+        $field['error'] = 'User is not logged in';
+
+        return false;
+    }
+
+    return true;
+
+}
+
 function validate_row_exists(string $field_input, array &$field): bool
 {
     if (App::$db->rowExists('pizzas', $field_input)) {

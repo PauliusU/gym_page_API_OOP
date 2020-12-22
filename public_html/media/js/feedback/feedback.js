@@ -76,9 +76,6 @@ const forms = {
             success: function (data) {
                 const element = forms.create.getElement();
 
-                // const option = forms.create.getElement().querySelector('option[value="' + data.id + '"]');
-                // option.remove();
-
                 table.row.append(data);
                 forms.ui.errors.hide(element);
                 forms.ui.clear(element);
@@ -226,12 +223,14 @@ const forms = {
                     console.log('Form errors received', errors);
 
                     Object.keys(errors).forEach(function (error_id) {
-                        const field = form.querySelector('input[name="' + error_id + '"]');
+                        // const field = form.querySelector('input[name="' + error_id + '"]');
+                        const field = form.querySelector('textarea[name="' + error_id + '"]');
+                        console.log(field);
                         if (field) {
-                            const span = document.createElement("span");
-                            span.className = 'field-error';
-                            span.innerHTML = errors[error_id];
-                            field.parentNode.append(span);
+                            const paragraph = document.createElement("p");
+                            paragraph.className = 'field-error';
+                            paragraph.innerHTML = errors[error_id];
+                            field.parentNode.append(paragraph);
 
                             console.log('Form error in field: ' + error_id + ':' + errors[error_id]);
                         }
