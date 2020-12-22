@@ -15,4 +15,4 @@ Router::add('feedback', '/feedback', \App\Controllers\Common\FeedbackController:
 
 // API Routes
 Router::add('api_comment_get', '/api/comment/get', \App\Controllers\Common\API\FeedbackApiController::class);
-Router::add('api_comment_create', '/api/comment/create', \App\Controllers\Common\API\FeedbackApiController::class);
+Router::add('api_comment_create', '/api/comment/create', \App\Controllers\Common\API\FeedbackApiController::class, 'create');

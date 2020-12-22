@@ -22,16 +22,15 @@ class FeedbackCreateForm extends Form
                     'extra' => [
                         'attr' => [
                             'placeholder' => 'Insert your feedback message here',
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
             ],
-            'buttons' => [
-                'submit' => [
-                    'title' => 'Send feedback',
-                ],
-            ],
-        ],
-        );
+        ]);
+
+        $this->data['attr']['id'] = 'comment-create-form';
+        $this->data['buttons']['create'] = [
+            'title' => 'Send',
+        ];
     }
 }

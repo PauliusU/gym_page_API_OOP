@@ -41,17 +41,15 @@ class FeedbackApiController
         $form = new FeedbackCreateForm();
 
         if ($form->validate()) {
-            $form_values = $form->values();
+            $comment = [
+                'user_id' => App::$db->getRowIdWhere('users', ['email' => App::$session->getUser()['email']]),
+                'timestamp' => time(),
+                'comment' => $form->value('text'),
+            ];
 
-            $discount['id'] = App::$db->insertRow('discounts', $form_values);
-            $discount['name'] = App::$db->getRowById('pizzas', $form_values['pizza_id'])['name'];
-            $discount['price'] = $form_values['price'];
-            $discount['pizza_id'] = $form_values['pizza_id'];
-            $discount['old_price'] = App::$db->getRowById('pizzas', $form_values['pizza_id'])['price'];
-            $discount['buttons']['edit'] = 'Edit';
-            $discount['buttons']['delete'] = 'Delete';
+            App::$db->insertRow('comments', $comment);
 
-            $response->setData($discount);
+            $response->setData($comment);
         } else {
             $response->setErrors($form->getErrors());
         }

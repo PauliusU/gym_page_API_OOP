@@ -11,7 +11,6 @@ const selectors = {
     table: 'table',
     forms: {
         create: 'comment-create-form',
-        update: 'comment-update-form',
     },
     modal: 'update-modal'
 }
@@ -69,6 +68,8 @@ const forms = {
             },
             onSubmitListener: function (e) {
                 e.preventDefault();
+                console.log("PREVENTAS");
+                console.log(e);
                 let formData = new FormData(e.target);
                 formData.append('action', 'create');
                 api(endpoints.create, formData, forms.create.success, forms.create.fail);
@@ -262,7 +263,7 @@ const table = {
     },
     init: function () {
         if (this.getElement()) {
-            console.log('table init')
+            console.log('Table init')
             this.data.load();
 
             Object.keys(this.buttons).forEach(buttonId => {
