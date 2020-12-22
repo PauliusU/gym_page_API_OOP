@@ -15,7 +15,7 @@ class PizzaBaseForm extends Form
                     'label' => 'PIZZA NAME',
                     'type' => 'text',
                     'validators' => [
-                        'validate_field_not_empty',
+                        'validate_not_empty',
                     ],
                     'extra' => [
                         'attr' => [
@@ -27,7 +27,7 @@ class PizzaBaseForm extends Form
                     'label' => 'PRICE',
                     'type' => 'text',
                     'validators' => [
-                        'validate_field_not_empty',
+                        'validate_not_empty',
                         'validate_numeric',
                         'validate_field_range' => [
                             'min' => 1,
@@ -44,7 +44,7 @@ class PizzaBaseForm extends Form
                     'label' => 'IMAGE URL',
                     'type' => 'text',
                     'validators' => [
-                        'validate_field_not_empty',
+                        'validate_not_empty',
                         'validate_url',
                     ],
                     'extra' => [

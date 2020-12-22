@@ -38,7 +38,7 @@ function validate_fields_match($form_values, array &$form, array $params): bool
  * @param array $field
  * @return bool
  */
-function validate_field_not_empty(string $field_value, array &$field): bool
+function validate_not_empty(string $field_value, array &$field): bool
 {
 
     if ($field_value == '') {
@@ -56,10 +56,20 @@ function validate_field_not_empty(string $field_value, array &$field): bool
  * @param array $field
  * @return bool
  */
-function validate_field_contains_space(string $field_value, array &$field): bool
+function validate_contains_space(string $field_value, array &$field): bool
 {
     if (str_word_count(trim($field_value)) < 2) {
         $field['error'] = 'Field must contain space';
+        return false;
+    }
+
+    return true;
+}
+
+function validate_not_contains_space(string $field_value, array &$field): bool
+{
+    if (str_word_count(trim($field_value)) < 2) {
+        $field['error'] = 'Field can not contain space';
         return false;
     }
 
@@ -74,13 +84,39 @@ function validate_field_contains_space(string $field_value, array &$field): bool
  * @param array $params
  * @return bool
  */
-function validate_field_range(string $field_value, array &$field, array $params): bool
+function validate_range(string $field_value, array &$field, array $params): bool
 {
     if ($field_value < $params['min'] || $field_value > $params['max']) {
         $field['error'] = strtr('Insert a number between @min - @max!', [
             '@min' => $params['min'],
             '@max' => $params['max']
         ]);
+
+        return false;
+    }
+
+    return true;
+}
+
+
+function validate_length(string $field_value, array &$field, array $params): bool
+{
+    if (strlen($field_value) < ($params['min'] ?? 0) || strlen($field_value) > $params['max']) {
+        $field['error'] = strtr('Field input must be between @min and @max symbols!', [
+            '@min' => $params['min'] ?? 0,
+            '@max' => $params['max'],
+        ]);
+
+        return false;
+    }
+
+    return true;
+}
+
+function validate_not_numeric(string $field_value, array &$field): bool
+{
+    if (preg_match('~[0-9]~', $field_value)) {
+        $field['error'] = 'Field input can not contain numbers';
 
         return false;
     }
@@ -154,6 +190,17 @@ function validate_url(string $field_value, array &$field): bool
 {
     if (!filter_var($field_value, FILTER_VALIDATE_URL)) {
         $field['error'] = 'Input is not a valid URL';
+
+        return false;
+    };
+
+    return true;
+}
+
+function validate_phone(string $field_value, array &$field): bool
+{
+    if (strlen($field_value) !== 9) {
+        $field['error'] = 'Field must contain 9 symbols';
 
         return false;
     };

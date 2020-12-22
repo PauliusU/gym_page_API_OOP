@@ -46,7 +46,7 @@ class FileDB
      */
     public function save(): bool
     {
-        $data = json_encode($this->getData());
+        $data = json_encode($this->getData(), JSON_PRETTY_PRINT);
         $bytes_written = file_put_contents($this->file_name, $data);
 
         return $bytes_written !== false;

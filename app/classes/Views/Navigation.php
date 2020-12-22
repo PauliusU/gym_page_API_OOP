@@ -19,7 +19,6 @@ class Navigation extends View
         if (App::$session->getUser()) {
             $this->addLink('Feedback', App::$router::getUrl('user_orders'), 'left');
 
-            // TODO: parašyti su this->value()
             $user_email = App::$session->getUser()['email'];
             $this->addLink("Logout ($user_email)", App::$router::getUrl('logout'), 'right');
         } else {
@@ -43,7 +42,6 @@ class Navigation extends View
             $link['active'] = false;
         }
 
-//        $this->data[$section][] = $link;
         $this->data[$section][] = $link;
     }
 
