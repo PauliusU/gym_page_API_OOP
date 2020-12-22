@@ -28,7 +28,7 @@ class FeedbackController
     {
         $this->page = new BasePage([
             'title' => 'Feedback | Golden gym',
-//            'js' => ['/media/js/home.js']
+            'js' => ['/media/js/feedback/feedback.js']
         ]);
     }
 

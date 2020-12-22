@@ -1,9 +1,7 @@
 'use strict';
 
 const endpoints = {
-    get: '/api/admin/users/get',
-    edit: '/api/admin/users/edit',
-    update: '/api/admin/users/update'
+    get: '/api/comment/get',
 };
 /**
  * This defines how JS code selects elements by ID
@@ -11,7 +9,8 @@ const endpoints = {
 const selectors = {
     table: 'table',
     forms: {
-        update: 'user-update-form'
+        create: 'discount-create-form',
+        update: 'discount-update-form',
     },
     modal: 'update-modal'
 }
@@ -52,6 +51,42 @@ function api(url, formData, success, fail) {
  * Object forms
  */
 const forms = {
+        /**
+         * Create Form
+         */
+        create: {
+            init: function () {
+                if (this.getElement()) {
+                    this.getElement().addEventListener('submit', this.onSubmitListener);
+                    return true;
+                }
+
+                return false;
+            },
+            getElement: function () {
+                return document.getElementById(selectors.forms.create);
+            },
+            onSubmitListener: function (e) {
+                e.preventDefault();
+                let formData = new FormData(e.target);
+                formData.append('action', 'create');
+                api(endpoints.create, formData, forms.create.success, forms.create.fail);
+            },
+            success: function (data) {
+                const element = forms.create.getElement();
+
+                const option = forms.create.getElement().querySelector('option[value="' + data.pizza_id + '"]');
+                option.remove();
+
+                table.row.append(data);
+                forms.ui.errors.hide(element);
+                forms.ui.clear(element);
+                forms.ui.flash.class(element, 'success');
+            },
+            fail: function (errors) {
+                forms.ui.errors.show(forms.create.getElement(), errors);
+            }
+        },
         /**
          * Update Form
          */
@@ -183,6 +218,7 @@ const forms = {
                  * @param {Object} errors
                  */
                 show: function (form, errors) {
+                    console.log(form);
                     this.hide(form);
 
                     console.log('Form errors received', errors);
@@ -225,6 +261,7 @@ const table = {
     },
     init: function () {
         if (this.getElement()) {
+            console.log('table init')
             this.data.load();
 
             Object.keys(this.buttons).forEach(buttonId => {
@@ -277,6 +314,7 @@ const table = {
 
             row.setAttribute('data-id', data.id);
             row.className = 'data-row';
+            delete (data.pizza_id);
 
             Object.keys(data).forEach(data_id => {
                 switch (data_id) {
@@ -323,6 +361,14 @@ const table = {
             row.replaceWith(this.build(data));
             //row = this.build(data);
         },
+        /**
+         * Deletes existing item
+         * @param {Integer} id
+         */
+        delete: function (id) {
+            const item = table.getElement().querySelector('.data-row[data-id="' + id + '"]');
+            item.remove();
+        }
     },
 
     // Buttons are declared on whole table, not on each row individually, so
@@ -355,7 +401,44 @@ const table = {
             fail: function (errors) {
                 alert(errors[0]);
             }
-        }
+        },
+        delete: {
+            init: function () {
+                if (table.getElement()) {
+                    table.getElement().addEventListener('click', this.onClickListener);
+                    return true;
+                }
+
+                return false;
+            },
+            onClickListener: function (e) {
+                // Listener is set on whole grid, so we listen for which class button
+                // has been pressed
+                if (e.target.className === 'delete') {
+                    let formData = new FormData();
+
+                    // Find container of the button, which has ID
+                    let item = e.target.closest('.data-row');
+                    console.log('Delete button clicked on', item);
+
+                    formData.append('id', item.getAttribute('data-id'));
+                    api(endpoints.delete, formData, table.buttons.delete.success, table.buttons.delete.fail);
+                }
+            },
+            success: function (data) {
+                table.row.delete(data.id);
+
+                const select = forms.create.getElement().querySelector('select');
+                const option = document.createElement('option');
+
+                option.value = data.id;
+                option.text = data.name;
+                select.append(option);
+            },
+            fail: function (errors) {
+                alert(errors[0]);
+            }
+        },
     }
 };
 
@@ -378,4 +461,5 @@ const app = {
 };
 
 // Launch App
+console.log('FEEDBACK vidus');
 app.init();

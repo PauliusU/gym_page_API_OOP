@@ -14,20 +14,20 @@ class InstallController
         // Users table
         App::$db->createTable('users');
         App::$db->insertRow('users', [
-            'name' => 'testas',
-            'surname' => 'testauskas',
+            'name' => 'Adam',
+            'surname' => 'Johnson',
             'email' => 'test@test.lt',
             'password' => 'test',
             'phone' => '+370612345678',
             'address' => 'Saulėtekio al. 15, Vilnius',
         ]);
         App::$db->insertRow('users', [
-            'name' => 'J',
-            'surname' => 'testauskas',
-            'email' => 'test@test.lt',
-            'password' => 'test',
-            'phone' => '+370612345678',
-            'address' => 'Saulėtekio al. 15, Vilnius',
+            'name' => 'John',
+            'surname' => 'Smith',
+            'email' => 'joch@smith.com',
+            'password' => '12345678',
+            'phone' => '+490987654321',
+            'address' => 'Sunset avenue 43-2, London, UK',
         ]);
 
         // Feedback (comments) table
