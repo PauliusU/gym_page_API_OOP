@@ -25,8 +25,8 @@ class FeedbackApiController
             $comment = [
                 'id' => $comment_id,
                 'name' => App::$db->getRowById('users', $comment['user_id'])['name'],
-                'date' => date("Y-m-d", $comment['timestamp']),
                 'comment' => $comment['comment'],
+                'date' => date("Y-m-d", $comment['timestamp']),
             ];
         }
 
@@ -51,13 +51,13 @@ class FeedbackApiController
 
         if ($form->validate()) {
             $comment['name'] = App::$session->getUser()['name'];
-            $comment['timestamp'] = date("Y-m-d", time());
             $comment['comment'] = $form->value('text');
+            $comment['timestamp'] = date("Y-m-d", time());
 
             $comment['id'] = App::$db->insertRow('comments', [
                 'user_id' => App::$db->getRowIdWhere('users', ['email' => App::$session->getUser()['email']]),
-                'timestamp' => time(),
                 'comment' => $comment['comment'],
+                'timestamp' => time(),
             ]);
 
             $response->setData($comment);

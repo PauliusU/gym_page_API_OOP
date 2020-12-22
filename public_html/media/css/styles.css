@@ -103,6 +103,7 @@ button:hover {
 \*------------------------------------*/
 
 table {
+    word-break: break-all;
     color: white;
 }
 
@@ -182,9 +183,9 @@ nav .active {
 \*------------------------------------*/
 
 footer {
-    background-color: rgb(51, 51, 51);
-    width: 100vw;
     height: 70px;
+    width: 100vw;
+    background-color: rgb(51, 51, 51);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +200,7 @@ footer span {
 \*------------------------------------*/
 
 #hero-image {
-    width: 100%;
+    width: 100vw;
     height: 300px;
     background-image: url("/media/img/hero.jpg");
     background-color: rgb(51, 51, 51);
@@ -214,7 +215,7 @@ footer span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
+    margin: 20px 20px;
 }
 
 #services-container .services-item {
@@ -312,7 +313,6 @@ footer span {
 @keyframes form-blinker {
     50% {
         background-color: gold;
-        /*opacity: 0;*/
     }
 }
 
@@ -321,7 +321,7 @@ footer span {
 \*------------------------------------*/
 
 @media only screen and (max-width: 400px) {
-    #hero {
+    #hero-image {
         height: 150px;
     }
 

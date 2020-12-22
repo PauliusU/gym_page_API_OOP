@@ -11,8 +11,8 @@ class FeedbackTable extends Table
         parent::__construct([
             'headers' => [
                 'Name',
-                'Date',
                 'Comment',
+                'Date',
             ],
             'rows' => $comments
         ]);
