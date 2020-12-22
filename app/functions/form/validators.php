@@ -75,7 +75,7 @@ function validate_login(array $filtered_input, array &$form): bool
  * @param array $field
  * @return bool
  */
-function validate_logged_in_user(array $filtered_input, array &$field): bool
+function validate_logged_in_user(string $field_input, array &$field): bool
 {
     if (!App::$session->getUser()) {
         $field['error'] = 'User is not logged in';

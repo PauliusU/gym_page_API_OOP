@@ -113,6 +113,11 @@ td {
     padding: 10px;
     border-radius: 4px;
     transition-duration: 1s;
+    font-size: 13px;
+}
+
+th {
+    background-color: rgb(51, 51, 51);
 }
 
 tr,
