@@ -13,6 +13,6 @@ require 'core/functions/form/validators.php';
 
 //Composer
 require 'vendor/autoload.php';
-require 'app/Config/Routes.php';
+require 'app/config/routes.php';
 
 
