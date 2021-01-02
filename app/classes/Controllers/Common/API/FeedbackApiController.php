@@ -4,7 +4,7 @@ namespace App\Controllers\Common\API;
 
 use App\App;
 use App\Views\Forms\FeedbackCreateForm;
-use Core\Api\Response;
+use Core\API\Response;
 
 class FeedbackApiController
 {
