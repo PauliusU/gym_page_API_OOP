@@ -6,6 +6,9 @@
 vendor
 composer.lock
 
+# PHPUnit
+.phpunit.result.cache
+
 # Etc
 app/data/db.json
 _private*

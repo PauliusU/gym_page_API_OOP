@@ -172,7 +172,8 @@ function validate_numeric(string $field_value, array &$field): bool
  */
 function validate_email(string $field_value, array &$field): bool
 {
-    if (!preg_match('/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/', $field_value)) {
+    if (!preg_match('/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/', $field_value) ||
+        !filter_var($field_value, FILTER_VALIDATE_EMAIL)) {
         $field['error'] = 'Invalid email format';
 
         return false;
