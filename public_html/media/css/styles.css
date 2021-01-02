@@ -22,7 +22,6 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: calc(100vh - 140px);
 }
@@ -135,7 +134,7 @@ td:hover {
 }
 
 td.comment {
-    max-width: 550px;
+    max-width: 200px;
 }
 
 /*------------------------------------*\
@@ -205,7 +204,7 @@ footer span {
 
 #hero-image {
     width: 100vw;
-    height: 300px;
+    height: 150px;
     background-image: url("/media/img/hero.jpg");
     background-color: rgb(51, 51, 51);
     background-size: cover;
@@ -215,7 +214,8 @@ footer span {
 
 #services-container {
     max-width: 800px;
-    height: 400px;
+    height: auto;
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -223,8 +223,9 @@ footer span {
 }
 
 #services-container .services-item {
-    width: 25%;
-    height: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
     border: 1px solid grey;
     text-align: center;
     color: black;
@@ -238,6 +239,10 @@ footer span {
 
 #services-container .services-item:hover h2 {
     color: black;
+}
+
+#services-container .services-item:last-child {
+    margin-bottom: 0;
 }
 
 #services-container img {
@@ -322,46 +327,40 @@ footer span {
 }
 
 /*------------------------------------*\
-  # Mobile version (responsive design)
+  # Responsive design
 \*------------------------------------*/
 
-@media only screen and (max-width: 400px) {
+@media only screen and (min-width: 400px) {
     #hero-image {
-        height: 150px;
+        height: 300px;
     }
 
     #services-container {
         height: auto;
-        flex-wrap: wrap;
-    }
-
-    #services-container .services-item {
-        width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-    td.comment {
-        max-width: 200px;
-    }
-}
-
-@media only screen and (min-width: 401px) and (max-width: 650px) {
-    #services-container {
-        height: auto;
-        flex-wrap: wrap;
     }
 
     #services-container .services-item {
         width: calc(50% - 10px);
         height: 350px;
     }
+}
+
+@media only screen and (min-width: 650px) {
+    #services-container {
+        height: 400px;
+        flex-wrap: wrap;
+    }
+
+    #services-container .services-item {
+        width: 30%;
+        height: 100%;
+    }
 
     #services-container .services-item:last-child {
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     td.comment {
-        max-width: 200px;
+        max-width: 450px;
     }
 }

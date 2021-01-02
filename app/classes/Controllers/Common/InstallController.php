@@ -19,7 +19,7 @@ class InstallController
         App::$db->insertRow('users', [
             'name' => 'Adam',
             'surname' => 'Johnson',
-            'email' => 'test@test.lt',
+            'email' => 'test@test.com',
             'password' => 'test',
             'phone' => '+370612345678',
             'address' => 'Saulėtekio al. 15, Vilnius',
@@ -27,7 +27,7 @@ class InstallController
         App::$db->insertRow('users', [
             'name' => 'John',
             'surname' => 'Smith',
-            'email' => 'joch@smith.com',
+            'email' => 'john@smith.com',
             'password' => '12345678',
             'phone' => '+490987654321',
             'address' => 'Sunset avenue 43-2, London, UK',
