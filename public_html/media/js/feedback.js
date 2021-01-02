@@ -69,7 +69,6 @@ const forms = {
             e.preventDefault();
             let formData = new FormData(e.target);
             formData.append('action', 'create');
-            console.log(formData);
             api(endpoints.create, formData, forms.create.success, forms.create.fail);
         },
         success: function (data) {
@@ -121,14 +120,12 @@ const forms = {
              * @param {Object} errors
              */
             show: function (form, errors) {
-                console.log(form);
                 this.hide(form);
 
                 console.log('Form errors received', errors);
 
                 Object.keys(errors).forEach(function (error_id) {
                     const field = form.querySelector('textarea[name="' + error_id + '"]');
-                    console.log(field);
                     if (field) {
                         const paragraph = document.createElement("p");
                         paragraph.className = 'field-error';
@@ -164,7 +161,7 @@ const table = {
     },
     init: function () {
         if (this.getElement()) {
-            console.log('Table init')
+            // Table init
             this.data.load();
 
             return true;
@@ -181,7 +178,7 @@ const table = {
          * @returns {undefined}
          */
         load: function () {
-            console.log('Table: Calling API to get data...');
+            // Table: Calling API to get data...
             api(endpoints.get, null, this.success, this.fail);
         },
         success: function (data) {
@@ -232,31 +229,11 @@ const table = {
          * @param {Object} data
          */
         append: function (data) {
-            console.log('Table: Creating row in table from ', data);
+            // Table: Creating row in table from data
             table.getElement().append(this.build(data));
         },
-        /**
-         * Updates existing item in grid from data
-         * Row is selected via "id" index in data
-         *
-         * @param {Object} data
-         */
-        update: function (data) {
-            let row = table.getElement().querySelector('.data-row[data-id="' + data.id + '"]');
-            row.replaceWith(this.build(data));
-            //row = this.build(data);
-        },
-        /**
-         * Deletes existing item
-         * @param {Integer} id
-         */
-        delete: function (id) {
-            const item = table.getElement().querySelector('.data-row[data-id="' + id + '"]');
-            item.remove();
-        }
     },
 };
-
 
 /**
  * Core page functionality
@@ -266,12 +243,10 @@ const app = {
         // Initialize all forms
         Object.keys(forms).forEach(formId => {
             let success = forms[formId].init();
-            console.log('Initializing form "' + formId + '": ' + (success ? 'SUCCESS' : 'FAIL'));
         });
 
-        console.log('Initializing table...');
+        // Initializing table...
         let success = table.init();
-        console.log('Table: Initialization: ' + (success ? 'PASS' : 'FAIL'));
     }
 };
 

@@ -23,7 +23,6 @@ class View
 
         require $template_path;
 
-
         return ob_get_clean();
     }
 }

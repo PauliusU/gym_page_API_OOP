@@ -293,6 +293,7 @@ footer span {
     background-color: rgb(51, 51, 51);
     border-radius: 10px;
     width: 800px;
+    min-width: 400px;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -339,9 +340,13 @@ footer span {
         height: auto;
         margin-bottom: 20px;
     }
+
+    td.comment {
+        max-width: 200px;
+    }
 }
 
-@media only screen and (min-width: 401px) and (max-width: 600px) {
+@media only screen and (min-width: 401px) and (max-width: 650px) {
     #services-container {
         height: auto;
         flex-wrap: wrap;
@@ -354,5 +359,9 @@ footer span {
 
     #services-container .services-item:last-child {
         margin-top: 20px;
+    }
+
+    td.comment {
+        max-width: 200px;
     }
 }
