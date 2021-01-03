@@ -185,6 +185,14 @@ const table = {
             Object.keys(data).forEach(i => {
                 table.row.append(data[i]);
             });
+            if (data.length == 0) {
+                table.row.append({
+                    id: 0,
+                    name: "",
+                    comment: "No comments yet. Be the first!",
+                    date: ""
+                });
+            }
         },
         fail: function (errors) {
             console.log(errors);
