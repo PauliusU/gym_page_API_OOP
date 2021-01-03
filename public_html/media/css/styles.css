@@ -49,33 +49,43 @@ a:hover {
 form {
     width: 400px;
     margin: 20px 0;
+    padding: 20px;
     background-color: rgb(51, 51, 51);
     color: white;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
 }
 
+form label {
+    width: 100%;
+}
+
 form p {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 5px 0 5px;
 }
 
 input,
 textarea {
     padding: 7px;
-    margin: 5px;
     border: none;
     border-radius: 3px;
-    width: 300px;
     resize: vertical;
+}
+
+input {
+    width: 320px;
+}
+
+textarea {
+    width: 100%;
 }
 
 button {
     padding: 7px;
-    margin: 5px;
+    margin: 10px 0 0;
     background: gold;
     color: black;
     width: 150px;
@@ -152,7 +162,7 @@ header {
 
 nav {
     width: 800px;
-    min-width: 400px;
+    min-width: 360px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -297,8 +307,7 @@ footer span {
 #feedback-table {
     background-color: rgb(51, 51, 51);
     border-radius: 10px;
-    width: 800px;
-    min-width: 400px;
+    min-width: 350px;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -306,7 +315,8 @@ footer span {
 }
 
 #feedback-form {
-    width: 400px;
+    width: 100%;
+    min-width: 350px;
     background-color: rgb(51, 51, 51);
     border-radius: 10px;
     min-height: 50px;
@@ -314,6 +324,15 @@ footer span {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    color: white;
+}
+
+#feedback-form a {
+    color: gold;
+}
+
+#feedback-form form {
+    margin: 0;
 }
 
 .success {
@@ -331,6 +350,12 @@ footer span {
 \*------------------------------------*/
 
 @media only screen and (min-width: 400px) {
+    main,
+    table {
+        width: 100%;
+        max-width: 800px;
+    }
+
     #hero-image {
         height: 300px;
     }
@@ -342,6 +367,11 @@ footer span {
     #services-container .services-item {
         width: calc(50% - 10px);
         height: 350px;
+    }
+
+    #feedback-table,
+    #feedback-form form {
+        width: 100%;
     }
 }
 
@@ -358,9 +388,5 @@ footer span {
 
     #services-container .services-item:last-child {
         margin-bottom: 20px;
-    }
-
-    td.comment {
-        max-width: 450px;
     }
 }

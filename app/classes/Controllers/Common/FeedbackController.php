@@ -47,18 +47,22 @@ class FeedbackController
         if (App::$session->getUser()) {
             $feedbackForm = (new FeedbackCreateForm())->render();
         } else {
+            $paragraph = 'Want to write a comment? &nbsp;';
+
             $link = new Link([
-                'text' => 'Want to write a comment? Please register',
+                'text' => 'Please register',
                 'url' => App::$router::getUrl('register'),
             ]);
 
-            $feedbackForm = $link->render();
+            $link = $link->render();
         }
 
         $content = (new View([
             'title' => 'Feedback about Golden gym',
-            'form' => $feedbackForm ?? [],
             'table' => $table->render(),
+            'form' => $feedbackForm ?? [],
+            'paragraph' => $paragraph ?? [],
+            'link' => $link ?? [],
         ]))->render(ROOT . '/app/templates/content/feedback.tpl.php');
 
         $this->page->setContent($content);
