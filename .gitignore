@@ -10,4 +10,4 @@ vendor
 
 # Etc
 app/data/db.json
-_private*
+*_private*
